@@ -1,0 +1,4 @@
+car_name,brand,model,vehicle_age,km_driven,fuel_type,price
+Maruti Alto,Maruti,Alto,9,120000,Petrol,120000
+Hyundai Grand,Hyundai,Grand,5,20000,Petrol,550000
+Ford Ecosport,Ford,Ecosport,6,30000,Diesel,570000
