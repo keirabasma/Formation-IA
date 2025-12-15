@@ -1,0 +1,61 @@
+import pandas as pd
+import numpy as np
+
+# Chargez votre jeu de données (remplacez 'import pandas as pd
+import numpy as np
+
+# Chargez votre jeu de données (remplacez 'Axis III - 3 -Workshops - cars.csv' par le nom réel)
+df = pd.read_csv('import pandas as pd
+import numpy as np
+
+# Chargez votre jeu de données (remplacez 'nAxis III - 3 -Workshops - cars.csv' par le nom réel)
+df = pd.read_csv('Axis III - 3 -Workshops - cars.csv')
+
+# Exemples de manipulations courantes :
+# Afficher les premières lignes
+print(df.head(Axis III - 3 -Workshops - cars))
+
+# Obtenir des statistiques descriptives
+print(df.describe(Axis III - 3 -Workshops - cars))
+
+# Filtrer les données
+df_filtre = df[df['colonne_exemple'] > 50]
+
+# Créer une nouvelle colonne basée sur des calculs
+df['nouvelle_colonne'] = df['colonne_A'] + df['colonne_B']
+
+# Gestion des valeurs manquantes
+df_nettoye = df.dropna(Axis III - 3 -Workshops - cars).csv')
+
+# Exemples de manipulations courantes :
+# Afficher les premières lignes
+print(df.head(Axis III - 3 -Workshops - cars))
+
+# Obtenir des statistiques descriptives
+print(df.describe(Axis III - 3 -Workshops - cars))
+
+# Filtrer les données
+df_filtre = df[df['colonne_exemple'] > 50]
+
+# Créer une nouvelle colonne basée sur des calculs
+df['nouvelle_colonne'] = df['colonne_A'] + df['colonne_B']
+
+# Gestion des valeurs manquantes
+df_nettoye = df.dropna().csv' par le nom réel)
+df = pd.read_csv('nom_du_fichier.csv')
+
+# Exemples de manipulations courantes :
+# Afficher les premières lignes
+print(df.head(Axis III - 3 -Workshops - cars))
+
+# Obtenir des statistiques descriptives
+print(df.describe(Axis III - 3 -Workshops - cars))
+
+# Filtrer les données
+df_filtre = df[df['colonne_exemple'] > 50]
+
+# Créer une nouvelle colonne basée sur des calculs
+df['nouvelle_colonne'] = df['colonne_A'] + df['colonne_B']
+
+# Gestion des valeurs manquantes
+df_nettoye = df.dropna(Axis III - 3 -Workshops - cars)
