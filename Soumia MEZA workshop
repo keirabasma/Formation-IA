@@ -1,0 +1,114 @@
+# Chapter 03 – Workshop Solution
+
+# 1. IMPORT LIBRARIES
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go
+from plotly.offline import init_notebook_mode
+
+init_notebook_mode(connected=True)
+
+# 2. LOAD DATASET (IRIS)
+# Make sure iris.csv is in the same folder
+
+df = pd.read_csv("iris.csv")
+
+# 3. DATA INSPECTION
+print("First rows of dataset:")
+print(df.head())
+
+print("\nDataset shape:")
+print(df.shape)
+
+print("\nData types:")
+print(df.dtypes)
+
+print("\nStatistical summary:")
+print(df.describe())
+
+
+# 4. DATA MANIPULATION (PANDAS)
+
+# Check missing values
+print("\nMissing values:")
+print(df.isnull().sum())
+
+# Convert Species to categorical
+if 'Species' in df.columns:
+    df['Species'] = df['Species'].astype('category')
+
+# 5. NUMPY OPERATIONS
+
+sepal_length = np.array(df.iloc[:, 0])
+
+print("\nNumPy Calculations on Sepal Length:")
+print("Mean:", np.mean(sepal_length))
+print("Min:", np.min(sepal_length))
+print("Max:", np.max(sepal_length))
+
+# 6. DATA VISUALIZATION - MATPLOTLIB
+
+# Line Plot
+plt.figure()
+plt.plot(df.iloc[:, 0])
+plt.title("Sepal Length Trend")
+plt.xlabel("Index")
+plt.ylabel("Sepal Length (cm)")
+plt.show()
+
+# Bar Chart (Average Petal Length per Species)
+if 'Species' in df.columns:
+    plt.figure()
+    df.groupby('Species').mean().iloc[:, 2].plot(kind='bar')
+    plt.title("Average Petal Length per Species")
+    plt.ylabel("Petal Length (cm)")
+    plt.show()
+
+# Histogram
+plt.figure()
+plt.hist(df.iloc[:, 1], bins=10)
+plt.title("Sepal Width Distribution")
+plt.xlabel("Sepal Width (cm)")
+plt.ylabel("Frequency")
+plt.show()
+
+# Scatter Plot
+plt.figure()
+plt.scatter(df.iloc[:, 0], df.iloc[:, 2])
+plt.xlabel("Sepal Length (cm)")
+plt.ylabel("Petal Length (cm)")
+plt.title("Sepal Length vs Petal Length")
+plt.show()
+
+# 7. DATA VISUALIZATION - PLOTLY
+
+# Scatter Plot
+fig = go.Figure(data=go.Scatter(
+    x=df.iloc[:, 0],
+    y=df.iloc[:, 2],
+    mode='markers'
+))
+fig.update_layout(
+    title="Sepal Length vs Petal Length (Plotly)",
+    xaxis_title="Sepal Length (cm)",
+    yaxis_title="Petal Length (cm)"
+)
+fig.show()
+
+# Histogram
+fig = go.Figure(data=[go.Histogram(x=df.iloc[:, 1])])
+fig.update_layout(title="Sepal Width Distribution (Plotly)")
+fig.show()
+
+# Box Plot
+if 'Species' in df.columns:
+    fig = go.Figure()
+    for sp in df['Species'].unique():
+        fig.add_trace(go.Box(
+            y=df[df['Species'] == sp].iloc[:, 3],
+            name=str(sp)
+        ))
+    fig.update_layout(title="Petal Width by Species (Plotly)")
+    fig.show()
